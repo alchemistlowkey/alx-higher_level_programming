@@ -11,5 +11,6 @@ if __name__ == "__main__":
         print("{} argument:".format(count))
     else:
         print("{} arguments:".format(count))
+
     for key, executable in enumerate(args, start=1):
         print("{}: {}".format(key, executable))
