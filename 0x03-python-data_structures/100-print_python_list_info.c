@@ -8,13 +8,13 @@
 
 void print_python_list_info(PyObject *p)
 {
-	Py_ssize_t length = 0, alloc, i = 0;
+	Py_ssize_t length = 0, allocated, i = 0;
 	const char *type;
 
 	length = PyList_Size(p);
-	alloc = ((PyListObject *)p)->allocated;
+	allocated = ((PyListObject *)p)->allocated;
 	printf("[*] Size of the Python List = %ld\n", length);
-	printf("[*] Allocated = %ld\n", alloc);
+	printf("[*] Allocated = %ld\n", allocated);
 
 	for (; i < length; i++)
 	{
