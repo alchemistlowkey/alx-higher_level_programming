@@ -7,44 +7,109 @@
 >>> add_integer = __import__('0-add_integer').add_integer
 
 'positive integer values'
+>>> add_integer(10, 20)
+30
 
 'negative integer values'
+>>> add_integer(-54, -20)
+-74
 
 'positive floating values'
+>>> add_integer(3.1, 80.2)
+83
 
 'negative floating values'
+>>> add_integer(-40.30, -43.91)
+-83
 
 'only one argument'
+>>> add_integer(90)
+188
 
 'b argument is empty'
+>>> add_integer(20, )
+118
 
-'a is an integer and b is a string'
+'a is a float and b is a string'
+>>> add_integer(40.9, "ALX")
+Traceback (most recent call last):
+...
+TypeError: b must be an integer
 
-'b is an integer and a is a string'
+'a is a string and b is an integer'
+>>> add_integer("Software Engineering", 15)
+Traceback (most recent call last):
+...
+TypeError: a must be an integer
 
 'a and b empty'
+>>> add_integer()
+Traceback (most recent call last):
+...
+TypeError: add_integer() takes at least 1 argument (0 given)
 
 'a is a bool'
-
-'a is a tuple'
-
-'a is a list'
-
-'a is a dict'
+>>> add_integer(True, 32)
+Traceback (most recent call last):
+...
+TypeError: a must be an integer
 
 'b is a bool'
+>>> add_integer(16, False)
+Traceback (most recent call last):
+...
+TypeError: b must be an integer
+
+'a is a tuple'
+>>> add_integer((4, 9), 16)
+Traceback (most recent call last):
+...
+TypeError: a must be an integer
 
 'b is a tuple'
+>>> add_integer(25, (36, 49))
+Traceback (most recent call last):
+...
+TypeError: b must be an integer
+
+'a is a list'
+>>> add_integer([1, 4], 9)
+Traceback (most recent call last):
+...
+TypeError: a must be an integer
 
 'b is a list'
+>>> add_integer(16, [25, 36])
+Traceback (most recent call last):
+...
+TypeError: b must be an integer
+
+'a is a dict'
+>>> add_integer({1, 4}, 9)
+Traceback (most recent call last):
+...
+TypeError: a must be an integer
 
 'b is a dict'
+>>> add_integer(16, {25, 36})
+Traceback (most recent call last):
+...
+TypeError: b must be an integer
 
 'a is an infinity float'
+>>> add_integer(sys.float_info.min + 1e500)
+Traceback (most recent call last):
+...
+OverflowError: cannot convert float infinity to integer
 
 'b is an infinity float'
+>>> add_integer(49, sys.float_info.min + 1e500)
+Traceback (most recent call last):
+...
+OverflowError: cannot convert float infinity to integer
 
 'a is nan'
+
 
 'b is nan'
 
