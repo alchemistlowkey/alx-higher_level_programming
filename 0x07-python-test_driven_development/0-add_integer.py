@@ -10,11 +10,11 @@ def add_integer(a, b=98):
     Adds 2 numbers integers or floats
 
     Args:
-        a: 1st argument
-        b: 2nd argument with default value of 98
+        a (int or float): 1st argument
+        b (int of float): 2nd argument with default value of 98
 
     Returns:
-        Integer: The sum of a and b.
+        Int: The sum of a and b.
 
     Raises:
         TypeError: If a or b is not an integer of float

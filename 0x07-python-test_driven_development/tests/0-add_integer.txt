@@ -46,7 +46,7 @@ TypeError: a must be an integer
 >>> add_integer()
 Traceback (most recent call last):
 ...
-TypeError: add_integer() takes at least 1 argument (0 given)
+TypeError: add_integer() missing 1 required positional argument: 'a'
 
 'a is a bool'
 >>> add_integer(True, 32)
@@ -56,6 +56,18 @@ TypeError: a must be an integer
 
 'b is a bool'
 >>> add_integer(16, False)
+Traceback (most recent call last):
+...
+TypeError: b must be an integer
+
+'a is a None'
+>>> add_integer(None)
+Traceback (most recent call last):
+...
+TypeError: a must be an integer
+
+'b is a None'
+>>> add_integer(93, None)
 Traceback (most recent call last):
 ...
 TypeError: b must be an integer
@@ -97,22 +109,38 @@ Traceback (most recent call last):
 TypeError: b must be an integer
 
 'a is an infinity float'
->>> add_integer(sys.float_info.min + 1e500)
+>>> import sys
+>>> add_integer(sys.float_info.max + 1e500)
 Traceback (most recent call last):
 ...
-OverflowError: cannot convert float infinity to integer
+TypeError: a must be an integer
 
 'b is an infinity float'
->>> add_integer(49, sys.float_info.min + 1e500)
+>>> add_integer(49, sys.float_info.max + 1e500)
 Traceback (most recent call last):
 ...
-OverflowError: cannot convert float infinity to integer
+TypeError: b must be an integer
 
 'a is nan'
-
+>>> add_integer(float('nan'))
+Traceback (most recent call last):
+...
+TypeError: a must be an integer
 
 'b is nan'
+>>> add_integer(49, float('nan'))
+Traceback (most recent call last):
+...
+TypeError: b must be an integer
 
 'a is inf'
+>>> add_integer(float('inf'))
+Traceback (most recent call last):
+...
+TypeError: a must be an integer
 
 'b is inf'
+>>> add_integer(3, float('inf'))
+Traceback (most recent call last):
+...
+TypeError: b must be an integer
