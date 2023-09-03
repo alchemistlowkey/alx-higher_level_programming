@@ -1,0 +1,53 @@
+========================================================================
+'Test for 0-add_integer module'
+========================================================================
+'Funtion to test:   add_integer()'
+========================================================================
+
+>>> add_integer = __import__('0-add_integer').add_integer
+
+'positive integer values'
+
+'negative integer values'
+
+'positive floating values'
+
+'negative floating values'
+
+'only one argument'
+
+'b argument is empty'
+
+'a is an integer and b is a string'
+
+'b is an integer and a is a string'
+
+'a and b empty'
+
+'a is a bool'
+
+'a is a tuple'
+
+'a is a list'
+
+'a is a dict'
+
+'b is a bool'
+
+'b is a tuple'
+
+'b is a list'
+
+'b is a dict'
+
+'a is an infinity float'
+
+'b is an infinity float'
+
+'a is nan'
+
+'b is nan'
+
+'a is inf'
+
+'b is inf'
