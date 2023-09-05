@@ -29,21 +29,21 @@ def matrix_divided(matrix, div):
         return matrix
 
     if type(matrix) is list:
-        copy_matrix = [x[:] for x in matrix]
-        for i in range(len(matrix)):
-            if i <= len(matrix) - 2 and len(matrix[i]) != len(matrix[i + 1]):
+        copy_matrix = [i[:] for i in matrix]
+        for x in range(len(matrix)):
+            if x <= len(matrix) - 2 and len(matrix[x]) != len(matrix[x + 1]):
                 raise TypeError("Each row of the matrix must have the same" +
                                 " size")
                 return matrix
-            for j in range(len(matrix[i])):
-                if type(matrix[i][j]) not in [int, float] or\
-                        matrix[i][j] != matrix[i][j] or\
-                        abs(matrix[i][j]) > 1.797693e+308:
+            for y in range(len(matrix[x])):
+                if type(matrix[x][y]) not in [int, float] or\
+                        matrix[x][y] != matrix[x][y] or\
+                        abs(matrix[x][y]) > 1.797693e+308:
                     raise TypeError("matrix must be a matrix (list of lists)" +
                                     " of integers/floats")
                     return matrix
                 else:
-                    copy_matrix[i][j] = round(matrix[i][j] / div, 2)
+                    copy_matrix[x][y] = round(matrix[x][y] / div, 2)
     else:
         raise TypeError("matrix must be a matrix (list of lists)" +
                         " of integers/floats")
