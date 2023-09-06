@@ -1,0 +1,99 @@
+========================================================================
+'Test for 101-lazy_matrix_mul'
+========================================================================
+'Function to test: lazy_matrix_mul(m_a, m_b)'
+========================================================================
+
+>>> lazy_matrix_mul = __import__("101-lazy_matrix_mul").lazy_matrix_mul
+
+'module docstring'
+>>> lazy = __import__("101-lazy_matrix_mul").__doc__ 
+>>> len(lazy) > 1                                    
+True
+
+'function docstring'
+>>> lazymul = __import__("101-lazy_matrix_mul").lazy_matrix_mul.__doc__         
+>>> len(lazymul) > 1                                                    
+True
+
+'empty args'
+>>> lazy_matrix_mul()
+Traceback (most recent call last):
+...
+TypeError: lazy_matrix_mul() missing 2 required positional arguments: 'm_a' and 'm_b'
+
+'only one arg'
+>>> lazy_matrix_mul([[1, 2]])
+Traceback (most recent call last):
+...
+TypeError: lazy_matrix_mul() missing 1 required positional argument: 'm_b'
+
+'more than 2 args'
+>>> lazy_matrix_mul([[1, 2]], [[3, 4]], [[5, 6]])
+Traceback (most recent call last):
+...
+TypeError: lazy_matrix_mul() takes 2 positional arguments but 3 were given
+
+'Matrix of integers'
+>>> print(lazy_matrix_mul([[1, 2], [3, 4]], [[5, 6], [7, 8]]))
+[[19 22]
+ [43 50]]
+
+'Matrix of float'
+>>> print(lazy_matrix_mul([[0.1, -1.23], [-2.345, -3.456]], [[-4.56], [5.6]]))
+[[-7.344 ]
+ [-8.6604]]
+
+'m_a is a boolean'
+>>> lazy_matrix_mul(False, [[1, 2]])
+Traceback (most recent call last):
+...
+ValueError: Scalar operands are not allowed, use '*' instead
+
+'m_b is not a list of integers or floats'
+>>> lazy_matrix_mul([[1, 2], [3, 4]], 5)
+Traceback (most recent call last):
+...
+ValueError: Scalar operands are not allowed, use '*' instead
+
+'m_a is not a list of integers or floats'
+>>> lazy_matrix_mul((1, 2, 3), [[4, 5]])
+Traceback (most recent call last):
+...
+ValueError: shapes (3,) and (1,2) not aligned: 3 (dim 0) != 1 (dim 0)
+
+'m_b is not a list of integers or floats'
+>>> lazy_matrix_mul([[1, 2], [3, 4]], "ALX")
+Traceback (most recent call last):
+...
+ValueError: Scalar operands are not allowed, use '*' instead
+
+'m_a is not a list of lists of integers'
+>>> lazy_matrix_mul([1, 2, 3], [[4, 5]])
+Traceback (most recent call last):
+...
+ValueError: shapes (3,) and (1,2) not aligned: 3 (dim 0) != 1 (dim 0)
+
+'m_b is not a list of lists of integers'
+>>> lazy_matrix_mul([[1, 1.5, 3.8, 9]], ["ALX", 15])
+Traceback (most recent call last):
+...
+ValueError: shapes (1,4) and (2,) not aligned: 4 (dim 1) != 2 (dim 0)
+
+'m_a is an empty list'
+>>> lazy_matrix_mul([], ["ALX", 7])
+Traceback (most recent call last):
+...
+ValueError: shapes (0,) and (2,) not aligned: 0 (dim 0) != 2 (dim 0)
+
+'m_b is an empty list of lists'
+>>> lazy_matrix_mul([[3, 8.1, 6.5, 5]], [[]])
+Traceback (most recent call last):
+...
+ValueError: shapes (1,4) and (1,0) not aligned: 4 (dim 1) != 1 (dim 0)
+
+'m_a is a list of lists but not a matrix'
+>>> lazy_matrix_mul([[3, -1.3], [-6.1, 5, -7]], [[4, 7]])
+Traceback (most recent call last):
+...
+ValueError: setting an array element with a sequence.
