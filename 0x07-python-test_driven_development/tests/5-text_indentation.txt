@@ -1,0 +1,90 @@
+========================================================================
+'Test for 5-text_indentation'
+========================================================================
+'Function to test: text_indentation(text)'
+========================================================================
+>>> text_indentation = __import__('5-text_indentation').text_indentation
+
+'text is a string'
+>>> text_indentation("ALX: Software Engineering? C. Python.")
+ALX:
+<BLANKLINE>
+Software Engineering?
+<BLANKLINE>
+C.
+<BLANKLINE>
+Python.
+<BLANKLINE>
+
+'text is a string with blankspaces'
+>>> text_indentation("ALX:		Software Engineering?     C.       Python.")
+ALX:
+<BLANKLINE>
+Software Engineering?
+<BLANKLINE>
+C.
+<BLANKLINE>
+Python.
+<BLANKLINE>
+
+'text with .:? without blankspace'
+>>> text_indentation(".:?")
+.
+<BLANKLINE>
+:
+<BLANKLINE>
+?
+<BLANKLINE>
+
+'text is an empty string'
+>>> text_indentation("")
+
+'text is a character' 
+>>> text_indentation('5')
+5
+
+'text is a new line'
+>>> text_indentation("\n")
+<BLANKLINE>
+
+'text is an integer'
+>>> text_indentation(5)
+Traceback (most recent call last):
+...
+TypeError: text must be a string
+
+'text is a float'
+>>> text_indentation(1.5)
+Traceback (most recent call last):
+...
+TypeError: text must be a string
+
+'text is a boolean'
+>>> text_indentation(True)
+Traceback (most recent call last):
+...
+TypeError: text must be a string
+
+'text is a tuple'
+>>> text_indentation((1, 2))
+Traceback (most recent call last):
+...
+TypeError: text must be a string
+
+'text is a list'
+>>> text_indentation([1, 2])
+Traceback (most recent call last):
+...
+TypeError: text must be a string
+
+'text is a dict'
+>>> text_indentation({1, 2})
+Traceback (most recent call last):
+...
+TypeError: text must be a string
+
+'text is empty'
+>>> text_indentation()
+Traceback (most recent call last):
+...
+TypeError: text_indentation() missing 1 required positional argument: 'text'
