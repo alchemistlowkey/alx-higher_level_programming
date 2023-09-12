@@ -13,7 +13,7 @@ class Student:
         """
         initialization method for Student class
 
-        Attributes:
+        Args:
             first_name: The first name of the student
             last_name: The last name of the student
             age: The age of the student
@@ -26,6 +26,9 @@ class Student:
     def to_json(self, attrs=None):
         """
         Represents of Student into json format
+
+        Args:
+            attrs: List of attributes names
 
         Return:
             Student class as a json format
