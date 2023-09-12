@@ -39,5 +39,5 @@ class Student:
         js = {}
         for i in attrs:
             if i in self.__dict__:
-                json_dict[i] = self.__dict__[i]
+                js[i] = self.__dict__[i]
         return js
