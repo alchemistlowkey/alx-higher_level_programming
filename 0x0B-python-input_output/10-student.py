@@ -31,7 +31,10 @@ class Student:
             Student class as a json format
         """
 
-        if attrs is None:
+        if att is None:
             return self.__dict__
-        return {key: value for (key, value) in self.__dict__.items()
-                if key in list(self.__dict__.keys())}
+        js = {}
+        for i in att:
+            if i in self.__dict__:
+                json_dict[i] = self.__dict__[i]
+        return js
