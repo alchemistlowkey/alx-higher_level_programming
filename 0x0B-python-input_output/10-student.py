@@ -31,10 +31,10 @@ class Student:
             Student class as a json format
         """
 
-        if att is None:
+        if attrs is None:
             return self.__dict__
         js = {}
-        for i in att:
+        for i in attrs:
             if i in self.__dict__:
                 json_dict[i] = self.__dict__[i]
         return js
