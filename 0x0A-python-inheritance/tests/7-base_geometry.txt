@@ -1,0 +1,101 @@
+=====================================================================
+'Test for 7-base_geometry'
+=====================================================================
+=====================================================================
+'Functions to test': area and integer_validator
+=====================================================================
+
+>>> BaseGeometry = __import__("7-base_geometry").BaseGeometry
+
+'class docstring'
+>>> cls = __import__("7-base_geometry").BaseGeometry.__doc__
+>>> len(cls) > 1
+True
+
+'string and integer'
+>>> bg = BaseGeometry()
+>>> bg.integer_validator("ALX", 15)
+
+'string and float'
+>>> bg = BaseGeometry()
+>>> bg.integer_validator("ALX", 15.12)
+Traceback (most recent call last):
+...
+TypeError: ALX must be an integer
+
+'string and string'
+>>> bg = BaseGeometry()
+>>> bg.integer_validator("ALX", "Software Engineering")
+Traceback (most recent call last):
+...
+TypeError: ALX must be an integer
+
+'string and negative integer'
+>>> bg = BaseGeometry()
+>>> bg.integer_validator("ALX", -9)
+Traceback (most recent call last):
+...
+ValueError: ALX must be greater than 0
+
+'string and boolean'
+>>> bg = BaseGeometry()
+>>> bg.integer_validator("ALX", False)
+Traceback (most recent call last):
+...
+TypeError: ALX must be an integer
+
+'string and 0'
+>>> bg = BaseGeometry()
+>>> bg.integer_validator("ALX", 0)
+Traceback (most recent call last):
+...
+ValueError: ALX must be greater than 0
+
+'string and tuple'
+>>> bg = BaseGeometry()
+>>> bg.integer_validator("ALX", (1, 2))
+Traceback (most recent call last):
+...
+TypeError: ALX must be an integer
+
+'string and list'
+>>> bg = BaseGeometry()
+>>> bg.integer_validator("ALX", [1, 2])
+Traceback (most recent call last):
+...
+TypeError: ALX must be an integer
+
+'string and dict'
+>>> bg = BaseGeometry()
+>>> bg.integer_validator("ALX", {1, 2})
+Traceback (most recent call last):
+...
+TypeError: ALX must be an integer
+
+'Empty argument'
+>>> bg = BaseGeometry()
+>>> bg.integer_validator()
+Traceback (most recent call last):
+...
+TypeError: integer_validator() missing 2 required positional arguments: 'name' and 'value'
+
+'One argument'
+>>> bg = BaseGeometry()
+>>> bg.integer_validator("ALX")
+Traceback (most recent call last):
+...
+TypeError: integer_validator() missing 1 required positional argument: 'value'
+
+'more than two arguments'
+>>> bg = BaseGeometry()
+>>> bg.integer_validator("hello", 1, 2, 3)
+Traceback (most recent call last):
+...
+TypeError: integer_validator() takes 3 positional arguments but 5 were given
+
+'Area'
+>>> bg = BaseGeometry()
+>>> bg.area()
+Traceback (most recent call last):
+...
+Exception: area() is not implemented
