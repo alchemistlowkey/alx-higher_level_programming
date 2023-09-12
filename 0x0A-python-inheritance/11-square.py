@@ -39,3 +39,12 @@ class Square(Rectangle):
 
         solution = self.__size * self.__size
         return solution
+
+    def __str__(self):
+        """
+        A special method
+        Returns:
+            The string representation of the square.
+        """
+
+        return ("[Square] {}/{}".format(self.__width, self.__height))
