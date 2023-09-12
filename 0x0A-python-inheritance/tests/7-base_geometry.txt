@@ -12,6 +12,21 @@
 >>> len(cls) > 1
 True
 
+'module docstring'
+>>> mod = __import__("7-base_geometry").__doc__
+>>> len(mod) > 1
+True
+
+'method docstring for area'
+>>> met = __import__("7-base_geometry").BaseGeometry.area.__doc__
+>>> len(met) > 1
+True
+
+'method docstring for integer_validator'
+>>> meth = __import__("7-base_geometry").BaseGeometry.integer_validator.__doc__
+>>> len(meth) > 1
+True
+
 'string and integer'
 >>> bg = BaseGeometry()
 >>> bg.integer_validator("ALX", 15)
@@ -30,6 +45,13 @@ Traceback (most recent call last):
 ...
 TypeError: ALX must be an integer
 
+'string and string'
+>>> bg = BaseGeometry()
+>>> bg.integer_validator("ALX", "15")
+Traceback (most recent call last):
+...
+TypeError: ALX must be an integer
+
 'string and negative integer'
 >>> bg = BaseGeometry()
 >>> bg.integer_validator("ALX", -9)
@@ -40,6 +62,13 @@ ValueError: ALX must be greater than 0
 'string and boolean'
 >>> bg = BaseGeometry()
 >>> bg.integer_validator("ALX", False)
+Traceback (most recent call last):
+...
+TypeError: ALX must be an integer
+
+'string and None'
+>>> bg = BaseGeometry()
+>>> bg.integer_validator("ALX", None)
 Traceback (most recent call last):
 ...
 TypeError: ALX must be an integer
