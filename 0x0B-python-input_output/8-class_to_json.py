@@ -2,7 +2,6 @@
 """
 JSON representation of an object(string)
 """
-import json
 
 
 def class_to_json(obj):
@@ -16,5 +15,10 @@ def class_to_json(obj):
         A JSON representation
     """
 
-    return {key: value for (key, value) in obj.__dict__.items()
-            if key in list(obj.__dict__.keys())}
+    js = {}
+    for att in obj.__dict__:
+        if not att.startswith("__"):
+            value = getattr(obj, att)
+            if isinstance(value, (list, dict, str, int, bool)):
+                js[att] = value
+    return js
