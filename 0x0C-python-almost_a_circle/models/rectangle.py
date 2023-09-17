@@ -185,10 +185,9 @@ class Rectangle(Base):
             The string representation of the rectangle.
         """
 
-        a = ("[Rectangle] ({}) {}/{} - {}/{}".format(self.id,
-                                                     self.x, self.y,
-                                                     self.width,
-                                                     self.height))
+        a = ("[{}] ({}) {}/{} - {}/{}".format(self.__class__.__name__,
+                                              self.id, self.x, self.y,
+                                              self.width, self.height))
         return a
 
     def update(self, *args, **kwargs):
@@ -216,3 +215,15 @@ class Rectangle(Base):
         else:
             for keys, values in kwargs.items():
                 setattr(self, keys, values)
+
+    def to_dictionary(self):
+        """
+        Public method that returns the dictionary representation
+
+        Returns:
+            The dictionary representation
+        """
+
+        dict_ret = {"id": self.id, "width": self.width,
+                    "height": self.height, "x": self.x, "y": self.y}
+        return dict_ret
