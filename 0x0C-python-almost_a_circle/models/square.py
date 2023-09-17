@@ -95,5 +95,5 @@ class Square(Rectangle):
             The dictionary representation of a Square
         """
 
-        dic_sq = {"id": self.id, "size": self.size, "x": self.x, "y": self.y}
+        dic_sq = {"id": self.id, "x": self.x, "size": self.size, "y": self.y}
         return dic_sq

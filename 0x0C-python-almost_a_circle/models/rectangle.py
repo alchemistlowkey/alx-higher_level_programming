@@ -224,6 +224,6 @@ class Rectangle(Base):
             The dictionary representation
         """
 
-        dict_ret = {"id": self.id, "width": self.width,
-                    "height": self.height, "x": self.x, "y": self.y}
+        dict_ret = {"x": self.x, "y": self.y, "id": self.id,
+                    "height": self.height, "width": self.width}
         return dict_ret
