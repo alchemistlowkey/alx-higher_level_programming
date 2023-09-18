@@ -3,6 +3,7 @@
 Base
 """
 import json
+import csv
 
 
 class Base:
@@ -74,3 +75,85 @@ class Base:
             return []
         else:
             return json.loads(json_string)
+
+    @classmethod
+    def create(cls, **dictionary):
+        """
+        Class method for the instance with all attributes already set
+
+        Args:
+            dictionary: The key worded argument for the create class method
+        """
+
+        if cls.__name__ == "Rectangle":
+            dummy_dummy = cls(1, 1)
+        elif cls.__name__ == "Square":
+            dummy_dummy = cls(1)
+        else:
+            dummy_dummy = None
+
+        if dummy_dummy is not None:
+            dummy_dummy.update(**dictionary)
+        return dummy_dummy
+
+    @classmethod
+    def load_from_file(cls):
+        """
+        Class method for the list of instances
+        """
+
+        fileload = cls.__name__ + ".json"
+        dic = []
+        try:
+            with open(fileload, encoding="utf-8") as f:
+                dic = cls.from_json_string(f.read())
+                ret = [cls.create(**dictionary) for dictionary in dic]
+                return ret
+        except FileNotFoundError:
+            return dic
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """
+        Saves to file in CSV
+
+        Args:
+            list_objs: List of instances
+        """
+
+        filecsv = cls.__name__ + ".csv"
+        emp_csv = []
+        with open(filecsv, "w", newline="") as f:
+            if len(list_objs) == 0 or list_objs is None:
+                f.write(emp_csv)
+            else:
+                new = csv.writer(f)
+                if cls.__name__ == "Rectangle":
+                    for i in list_objs:
+                        list_i = [i.id, i.width, i.height, i.x, i.y]
+                        new.writerow(list_i)
+                elif cls.__name__ == "Square":
+                    for i in list_objs:
+                        list_i = [i.id, i.size, i.x, i.y]
+                        new.writerow(list_i)
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """
+        Deserializes to load from a CSV file
+        """
+
+        filecsv = cls.__name__ + ".csv"
+        emp_csv = []
+        try:
+            with open(filecsv, newline="") as f:
+                if cls.__name__ == "Rectangle":
+                    new = ["id", "width", "height", "x", "y"]
+                elif cls.__name__ == "Square":
+                    new = ["id", "size", "x", "y"]
+                new_instance = csv.DictReader(f, fieldnames=new)
+                new_instance = [dict([key, int(value)] for key, value in
+                                data.items()) for data in new_instance]
+                return [cls.create(**data) for data in new_instance]
+        except FileNotFoundError:
+            return emp_csv
