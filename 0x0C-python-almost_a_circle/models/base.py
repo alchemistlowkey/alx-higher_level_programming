@@ -1,9 +1,10 @@
 #!/usr/bin/python3
 """
-Base
+Base class
 """
 import json
 import csv
+import turtle
 
 
 class Base:
@@ -157,3 +158,40 @@ class Base:
                 return [cls.create(**data) for data in new_instance]
         except FileNotFoundError:
             return emp_csv
+
+    @staticmethod
+    def draw(list_rectangles, list_squares):
+        """
+        A function that opens a window and draws all the Rectangle and Squares
+
+        Args:
+            list_rectangles: for Rectangle
+            list_squares: for square
+        """
+
+        turtle.Screen().bgcolor("blue")
+        turtle.speed(0)
+
+        for rectangles in list_rectangles:
+            rect = (rectangles.x, rectangles.y)
+            turtle.penup()
+            turtle.goto(rect)
+            turtle.pendown()
+            turtle.color("red")
+            for position in range(2):
+                turtle.forward(rectangles.width)
+                turtle.right(90)
+                turtle.forward(rectangles.height)
+                turtle.right(90)
+
+        for squares in list_squares:
+            sq = (squares.x, squares.y)
+            turtle.penup()
+            turtle.goto(sq)
+            turtle.pendown()
+            turtle.color("green")
+            for position in range(4):
+                turtle.forward(squares.size)
+                turtle.right(90)
+
+        turtle.exitonclick()
