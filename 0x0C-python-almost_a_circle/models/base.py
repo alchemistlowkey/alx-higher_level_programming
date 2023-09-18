@@ -72,7 +72,7 @@ class Base:
         """
 
         if len(json_string) == 0 or json_string is None:
-            return []
+            return "[]"
         else:
             return json.loads(json_string)
 
