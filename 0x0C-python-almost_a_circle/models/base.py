@@ -71,7 +71,7 @@ class Base:
             json_string: A string representing a list of dictionaries
         """
 
-        if len(json_string) == 0 or json_string is None:
+        if json_string is None or len(json_string) == 0:
             return []
         return json.loads(json_string)
 
