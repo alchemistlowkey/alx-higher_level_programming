@@ -121,7 +121,6 @@ class TestSquare(unittest.TestCase):
         self.assertEqual(s.x, 3)
         self.assertEqual(s.y, 4)
 
-
     def test_update_kwargs(self):
         """Test the update method of the Square class using **kwargs."""
         s = Square(5)
@@ -148,7 +147,9 @@ class TestSquare(unittest.TestCase):
         self.assertEqual(s.y, 1)
 
     def test_update_args_kwargs(self):
-        """Test the update method with both no-keyword and keyword arguments."""
+        """
+        Test the update method with both no-keyword and keyword arguments.
+        """
         s = Square(5)
         s.update(10, 20, x=30, y=40)
         self.assertEqual(s.id, 10)

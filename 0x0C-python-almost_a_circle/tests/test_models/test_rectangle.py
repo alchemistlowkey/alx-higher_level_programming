@@ -211,7 +211,6 @@ class TestRectangle(unittest.TestCase):
         r.update(y=5)
         self.assertEqual(str(r), "[Rectangle] (89) 4/5 - 2/3")
 
-
     def test_update_with_args_and_kwargs(self):
         '''
         Test the update method of Rectangle class using kwargs.
@@ -237,6 +236,7 @@ class TestRectangle(unittest.TestCase):
         r = Rectangle(10, 2, 1, 9)
         expected_dict = {'x': 1, 'y': 9, 'id': 13, 'height': 2, 'width': 10}
         self.assertDictEqual(r.to_dictionary(), expected_dict)
+
 
 if __name__ == "__main__":
     unittest.main()

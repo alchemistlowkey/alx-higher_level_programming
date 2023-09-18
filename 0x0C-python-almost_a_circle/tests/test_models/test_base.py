@@ -34,7 +34,7 @@ class TestBase(unittest.TestCase):
         """
         pep8style = pep8.StyleGuide(quiet=True)
         check = pep8style.check_files(['models/base.py'])
-        self.assertEqual(check.total_errors, 0, "Found code style errors (and warnings).")
+        self.assertEqual(check.total_errors, 0, "Found code style errors.")
 
     def test_module_docstring(self):
         """
