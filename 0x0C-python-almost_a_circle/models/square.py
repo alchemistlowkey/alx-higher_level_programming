@@ -58,9 +58,8 @@ class Square(Rectangle):
             The string representation of the square.
         """
 
-        a = ("[{}] ({}) {}/{} - {}".format(self.__class__.__name__,
-                                              self.id, self.x, self.y,
-                                              self.width))
+        a = ("[{}] ({}) {}/{} - {}".format(self.__class__.__name__, self.id,
+                                           self.x, self.y, self.width))
         return a
 
     def update(self, *args, **kwargs):
