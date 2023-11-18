@@ -20,6 +20,7 @@ if __name__ == "__main__":
 
     for data in states:
         print("{}: {}".format(data.id, data.name))
+
         for value in data.cities:
             print("    {}: {}".format(value.id, value.name))
 
