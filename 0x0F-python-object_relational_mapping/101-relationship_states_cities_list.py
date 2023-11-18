@@ -13,7 +13,6 @@ from sqlalchemy.orm import sessionmaker
 if __name__ == "__main__":
     mydb = f"mysql+mysqldb://{argv[1]}:{argv[2]}@localhost:3306/{argv[3]}"
     mydb_engine = create_engine(mydb)
-    Base.metadata.create_all(mydb_engine)
     Session = sessionmaker(bind=mydb_engine)
     session = Session()
 
