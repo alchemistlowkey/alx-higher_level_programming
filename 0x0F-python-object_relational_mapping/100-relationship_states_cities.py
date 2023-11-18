@@ -24,4 +24,5 @@ if __name__ == "__main__":
     session.add(california)
     session.add(san_francisco)
     session.commit()
+
     session.close()
