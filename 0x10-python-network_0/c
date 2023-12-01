@@ -1,2 +1,3 @@
 #!/bin/bash
 chmod a+x *.sh
+chmod a+x *.py
