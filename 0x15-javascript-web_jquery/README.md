@@ -11,6 +11,7 @@ How to modify the DOM
 How to make a GET request with JQuery Ajax
 How to make a POST request with JQuery Ajax
 How to listen/bind to DOM events
+All your files will be interpreted on Chrome (version 57.0)
 
 Import JQuery
 <head>
